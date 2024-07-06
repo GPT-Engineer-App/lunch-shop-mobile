@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Link } from "react-router-dom";
 
 const registerSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -14,6 +16,7 @@ const registerSchema = z.object({
   phoneNumber: z.string().min(1, "Phone number is required"),
   password: z.string().min(8, "Password must be at least 8 characters"),
   confirmPassword: z.string().min(8, "Confirm password must be at least 8 characters"),
+  receivePromos: z.boolean().optional(),
 });
 
 const Register = () => {
@@ -125,7 +128,27 @@ const Register = () => {
                   </FormItem>
                 )}
               />
+              <FormField
+                control={form.control}
+                name="receivePromos"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <div className="flex items-center space-x-2">
+                        <Checkbox id="receivePromos" {...field} />
+                        <FormLabel htmlFor="receivePromos">Me gustaría recibir promos.</FormLabel>
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <Button type="submit" className="w-full bg-red-600">REGISTRARME</Button>
+              <div className="text-center mt-4">
+                <p className="text-sm text-muted-foreground">
+                  Al oprimir "REGISTRARME" aceptas los <Link to="/terms" className="underline">Términos y condiciones</Link> y el <Link to="/privacy" className="underline">Aviso de privacidad</Link>.
+                </p>
+              </div>
             </form>
           </Form>
         </CardContent>
