@@ -61,8 +61,6 @@ const Login = () => {
                   ¿Olvidaste tu contraseña?
                 </Link>
               </div>
-              <Button type="submit" className="w-full bg-blue-600">Iniciar Sesión para esta orden</Button>
-              <Button type="submit" className="w-full bg-red-600">Iniciar Sesión y dejarla abierta</Button>
               <div className="flex items-center justify-center space-x-2 mt-4">
                 <span className="text-muted-foreground">0</span>
               </div>
