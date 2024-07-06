@@ -60,6 +60,9 @@ const Login = () => {
                 <Link to="/recover-password" className="text-sm text-muted-foreground hover:text-foreground">
                   ¿Olvidaste tu contraseña?
                 </Link>
+                <Link to="/register" className="text-sm text-muted-foreground hover:text-foreground">
+                  ¿No tienes una cuenta? Regístrate
+                </Link>
               </div>
               <div className="flex items-center justify-center space-x-2 mt-4">
                 <span className="text-muted-foreground">0</span>
