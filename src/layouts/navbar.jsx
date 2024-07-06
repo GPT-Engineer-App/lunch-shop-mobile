@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Menu, Package2 } from "lucide-react";
+import { CircleUser, Menu, Package2, ShoppingCart } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import { navItems } from "../App";
 
@@ -37,11 +37,7 @@ const DesktopNav = () => (
       <Package2 className="h-6 w-6" />
       <span className="sr-only">Acme Inc</span>
     </NavItem>
-    {navItems.map((item) => (
-      <NavItem key={item.to} to={item.to}>
-        {item.title}
-      </NavItem>
-    ))}
+    <NavItem to="/">Home</NavItem>
   </nav>
 );
 
@@ -62,33 +58,22 @@ const MobileNav = () => (
           <Package2 className="h-6 w-6" />
           <span className="sr-only">Acme Inc</span>
         </NavItem>
-        {navItems.map((item) => (
-          <NavItem key={item.to} to={item.to}>
-            {item.title}
-          </NavItem>
-        ))}
+        <NavItem to="/">Home</NavItem>
       </nav>
     </SheetContent>
   </Sheet>
 );
 
 const UserMenu = () => (
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button variant="secondary" size="icon" className="rounded-full">
-        <CircleUser className="h-5 w-5" />
-        <span className="sr-only">Toggle user menu</span>
-      </Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent align="end">
-      <DropdownMenuLabel>My Account</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem>Settings</DropdownMenuItem>
-      <DropdownMenuItem>Support</DropdownMenuItem>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem>Logout</DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
+  <div className="flex items-center gap-4">
+    <NavLink to="/login" className="text-muted-foreground hover:text-foreground">
+      Iniciar sesión
+    </NavLink>
+    <Button variant="secondary" size="icon" className="rounded-full">
+      <ShoppingCart className="h-5 w-5" />
+      <span className="sr-only">Shopping Cart</span>
+    </Button>
+  </div>
 );
 
 const NavItem = ({ to, children, className }) => (
