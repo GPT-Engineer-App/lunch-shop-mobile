@@ -64,6 +64,7 @@ const Login = () => {
                   ¿No tienes una cuenta? Regístrate
                 </Link>
               </div>
+              <Button type="submit" className="w-full">Iniciar Sesión</Button>
               <div className="flex items-center justify-center space-x-2 mt-4">
                 <span className="text-muted-foreground">0</span>
               </div>
